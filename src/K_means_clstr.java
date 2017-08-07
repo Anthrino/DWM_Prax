@@ -20,204 +20,212 @@ class K_means_clstr {
 		System.out.print("\n Enter the dataset (" + choice + "-D matrix) : ");
 
 		if (choice == 1) {
-			int dataset[] = new int[n];
+
+			List<Integer> dataset = new ArrayList<Integer>();
+			List<List<Integer>> clusters = new ArrayList<List<Integer>>();
+
+			List<Integer> means = new ArrayList<Integer>();
+			List<Integer> means_ng = new ArrayList<Integer>();
+
 			for (int i = 0; i < n; i++) {
-				dataset[i] = sc.nextInt();
+				dataset.add(sc.nextInt());
 			}
-			int x, y;
-			do {
-				x = dataset[ran.nextInt(n)];
-				y = dataset[ran.nextInt(n)];
-				System.out.println(" Initial random means: " + x + " " + y);
 
-			} while (x == y);
-
-			int x1 = -1, y1 = -1, index = 0;
-			List<List<Integer>> clusters = new List<List<Integer>>();
-			
-			for(int i = 0; i < 10; i++)
-			{
-				
-				
-				
+			System.out.print(" Initial random means: ");
+			for (int i = 0; i < c; i++) {
+				int x;
+				do {
+					x = dataset.get(ran.nextInt(n));
+				} while (means.contains(x));
+				means.add(x);
+				means_ng.add(0);
+				System.out.print(x + " ");
 			}
-			
-			while ((x1 != x) || (y1 != y)) {
-				set1 = new ArrayList<Integer>();
-				set2 = new ArrayList<Integer>();
-				int sum1 = 0, sum2 = 0;
+
+			int index = 0;
+
+			while (!means_ng.equals(means)) {
+				clusters.clear();
+				for (int i = 0; i < c; i++) {
+					clusters.add(new ArrayList<Integer>());
+				}
+				int sums[] = new int[c];
+				Arrays.fill(sums, 0);
 				index++;
 				for (int i = 0; i < n; i++) {
-					if (Math.abs(dataset[i] - x) <= Math.abs(dataset[i] - y)) {
-						set1.add(dataset[i]);
-						sum1 += dataset[i];
-					} else {
-						set2.add(dataset[i]);
-						sum2 += dataset[i];
+					int clstr_no = 0, x = dataset.get(i);
+					int min = Math.abs(x - means.get(0));
+
+					List<Integer> cluster_buffer = new ArrayList<Integer>();
+					for (int j = 0; j < c; j++) {
+						int y = means.get(j);
+						if (Math.abs(x - y) <= min) {
+							min = Math.abs(x - y);
+							clstr_no = j;
+						}
+					}
+					cluster_buffer = clusters.get(clstr_no);
+					cluster_buffer.add(x);
+					clusters.set(clstr_no, cluster_buffer);
+					sums[clstr_no] += x;
+				}
+				for (int i = 0; i < c; i++) {
+					means_ng.set(i, means.get(i));
+					means.set(i, sums[i] / clusters.get(i).size());
+				}
+				System.out.println("\n Iteration " + (index) + " : ");
+				System.out.print("\n Means : ");
+				for (int i = 0; i < c; i++) {
+					System.out.print(means.get(i) + " | ");
+				}
+
+				if (!means_ng.equals(means)) {
+
+					System.out.print("\n Clusters : ");
+					for (int i = 0; i < c; i++) {
+						for (int j : clusters.get(i))
+							System.out.print(j + " ");
+						System.out.print("| ");
+
+					}
+
+				} else {
+					System.out.print("\n K means clustered datasets : ");
+					for (int i = 0; i < c; i++) {
+						for (int j : clusters.get(i))
+							System.out.print(j + " ");
+						System.out.print("| ");
 					}
 				}
-				if ((x1 != x) || (y1 != y)) {
-					x1 = x;
-					y1 = y;
-					x = sum1 / set1.size();
-					y = sum2 / set2.size();
-					System.out.print("\n Datasets at iteration " + (index) + " : \n Set 1: ");
-					for (int j : set1)
-						System.out.print(j + " ");
-					System.out.print("\n Set 2: ");
-					for (int j : set2)
-						System.out.print(j + " ");
-					System.out.println("\n Mean 1: " + x);
-					System.out.println(" Mean 2: " + y);
-				} else {
-					System.out.print("\n K-Means Clustered Datasets : \n Set 1: ");
-					for (int j : set1)
-						System.out.print(j + " ");
-					System.out.print("\n Set 2: ");
-					for (int j : set2)
-						System.out.print(j + " ");
-				}
 			}
+		}
 
-		} else if (choice == 2) {
+		else if (choice == 2) {
 			System.out.print("\n Enter no. of attributes per element : ");
 			int m = sc.nextInt();
 
-			int dataset[][] = new int[n][m];
+			List<List<Integer>> dataset = new ArrayList<List<Integer>>();
+			List<List<List<Integer>>> clusters = new ArrayList<List<List<Integer>>>();
+
+			List<List<Integer>> means = new ArrayList<List<Integer>>();
+			List<List<Integer>> means_ng = new ArrayList<List<Integer>>();
+
 			for (int i = 0; i < n; i++) {
 				System.out.print("\n Enter attribute values for element " + (i + 1) + " : ");
+				dataset.add(new ArrayList<Integer>());
 				for (int j = 0; j < m; j++) {
-					dataset[i][j] = sc.nextInt();
+					dataset.get(i).add(sc.nextInt());
 				}
 			}
 
-			int x[] = new int[m], y[] = new int[m];
-			do {
-
-				int f = ran.nextInt(n);
-				System.out.print("\n Initial random mean elements:- ");
+			System.out.print("\n Initial random means elements :- ");
+			for (int i = 0; i < c; i++) {
+				List<Integer> x, x1 = new ArrayList<>(), y = new ArrayList<>();
+				do {
+					x = dataset.get(ran.nextInt(n));
+					x1.clear();
+					x1.addAll(x);
+				} while (means.contains(x));
+				means.add(x1);
 				for (int j = 0; j < m; j++) {
-					x[j] = dataset[f][j];
-					System.out.print(x[j] + " ");
+					System.out.print(x.get(j) + " ");
+					y.add(0);
 				}
-				f = ran.nextInt(n);
+				means_ng.add(y);
 				System.out.print("| ");
-				for (int j = 0; j < m; j++) {
-					y[j] = dataset[f][j];
-					System.out.print(y[j] + " ");
+			}
+
+			int index = 0;
+
+			while (!means.containsAll(means_ng)) {
+				clusters.clear();
+				
+				for (int i = 0; i < c; i++) {
+					clusters.add(new ArrayList<List<Integer>>());
 				}
-			} while (Arrays.equals(x, y));
 
-			int x1[] = new int[m], y1[] = new int[m];
-			Arrays.fill(x1, 0);
-			Arrays.fill(y1, 0);
-			int index = 0, flag = 0;
-			List<int[]> set1, set2;
-
-			while (!(Arrays.equals(x, x1)) || !(Arrays.equals(y, y1))) {
-				set1 = new ArrayList<int[]>();
-				set2 = new ArrayList<int[]>();
-
-				int sum1[] = new int[m], sum2[] = new int[m];
-				Arrays.fill(sum1, 0);
-				Arrays.fill(sum2, 0);
+				int sums[][] = new int[c][m];
+				for (int j[] : sums)
+					Arrays.fill(j, 0);
 				index++;
 				for (int i = 0; i < n; i++) {
-					int ecdist1 = 0, ecdist2 = 0;
-					for (int j = 0; j < m; j++) {
-						ecdist1 += Math.pow(dataset[i][j] - x[j], 2);
-						ecdist2 += Math.pow(dataset[i][j] - y[j], 2);
+					double min = 0;
+					int clustr_no = -1;
+					List<Integer> x = dataset.get(i);
+					for (int j = 0; j < c; j++) {
+						List<Integer> y = means.get(j);
+						int edbuff = 0;
+						for (int k = 0; k < m; k++) {
+							edbuff += Math.pow(x.get(k) - y.get(k), 2);
+						}
+						double y1 = Math.pow(edbuff, 0.5);
+						if (j == 0 || min > y1) {
+							min = y1;
+							clustr_no = j;
+						}
 					}
-
-					if (Math.pow(ecdist1, 0.5) <= Math.pow(ecdist2, 0.5)) {
-						set1.add(dataset[i]);
-						for (int j = 0; j < m; j++) {
-							sum1[j] += dataset[i][j];
-						}
-
-					} else {
-						set2.add(dataset[i]);
-						for (int j = 0; j < m; j++) {
-							sum2[j] += dataset[i][j];
-						}
-
+					List<List<Integer>> clstr_buff = clusters.get(clustr_no);
+					clstr_buff.add(x);
+					clusters.set(clustr_no, clstr_buff);
+					for (int j = 0; j < m; j++) {
+						sums[clustr_no][j] += x.get(j);
 					}
 
 				}
-				int s1 = set1.size(), s2 = set2.size();
-				if (flag == 0) {
+				System.out.print("\n\n Iteration " + (index) + " :- ");
+							
+				for (int i = 0; i < c; i++) {
+					List<Integer> mean_buff = means.get(i);
+					List<Integer> means_buff_ng = means_ng.get(i);
 
-					int counter = 0;
 					for (int j = 0; j < m; j++) {
-						x1[j] = x[j];
-						y1[j] = y[j];
-						x[j] = sum1[j] / s1;
-						y[j] = sum2[j] / s2;
-						if((x[j] == x1[j])&&(y[j] == y1[j]))
-							counter++;
+						means_buff_ng.set(j, mean_buff.get(j));
+						mean_buff.set(j, sums[i][j] / clusters.get(i).size());
 					}
-
-					// System.out.print("\n Final 1:");
-					// for (int[] k : set1) {
-					// for (int l : k)
-					// System.out.print(l + " ");
-					// System.out.print("| ");
-					// }
-					// System.out.print("\n Final 2:");
-					// for (int[] k : set2) {
-					// for (int l : k)
-					// System.out.print(l + " ");
-					// System.out.print("| ");
-					// }
-					
-					if (counter == m) {
-						flag = 1;
-
-						System.out.print("\n\n K-Means Clustered Datasets : \n Set 1: ");
-						for (int[] i : set1) {
-							for (int j : i)
-								System.out.print(j + " ");
-							System.out.print("| ");
-						}
-						System.out.print("\n Set 2: ");
-						for (int[] i : set2) {
-							for (int j : i)
-								System.out.print(j + " ");
-							System.out.print("| ");
-						}
-					} else {
-						flag = 0;
-
-						System.out.print("\n\n Iteration " + (index)
-								+ " : \n\n Set 1: ");
-						for (int[] i : set1) {
-							for (int j : i)
-								System.out.print(j + " ");
-							System.out.print("| ");
-						}
-						System.out.print("\n Set 2: ");
-						for (int[] i : set2) {
-							for (int j : i)
-								System.out.print(j + " ");
-							System.out.print("| ");
-						}
-
-						System.out.print("\n Mean element 1: ");
-						for (int j = 0; j < m; j++) {
-							System.out.print(" " + x[j]);
-						}
-						System.out.print("\n Mean element 2: ");
-						for (int j = 0; j < m; j++) {
-							System.out.print(" " + y[j]);
-
-						}
-					}
+					means.set(i, mean_buff);
 				}
+
+				if (!means_ng.equals(means)) {
+
+					System.out.print("\n Clusters : ");
+					for (int i = 0; i < c; i++) {
+						List<List<Integer>> clstr_buff = clusters.get(i);
+						for (List<Integer> j : clstr_buff) {
+							for (int k : j) {
+								System.out.print(k + " ");
+							}
+							System.out.print(", ");
+						}
+						System.out.print("|| ");
+					}
+
+				}
+
+				System.out.print("\n Calculated Means : ");
+				for (int i = 0; i < c; i++) {
+					List<Integer> mean_buff = means.get(i);
+					for (int j : mean_buff) {
+						System.out.print(j + " ");
+					}
+					System.out.print("| ");
+				}
+
 			}
 
+			System.out.print("\n\n\n K - Means clustered datasets : ");
+			for (int i = 0; i < c; i++) {
+				List<List<Integer>> clstr_buff = clusters.get(i);
+				for (List<Integer> j : clstr_buff) {
+					for (int k : j) {
+						System.out.print(k + " ");
+					}
+					System.out.print(", ");
+				}
+				System.out.print("|| ");
+			}
 		}
+
 		System.out.println("\n");
 		sc.close();
 	}
-	// System.out.println(dataset);
 }

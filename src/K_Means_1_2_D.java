@@ -1,4 +1,4 @@
-// Program for K-means clustering algorithm for 1-D / 2-D datasets
+// Program for K-means clustering algorithm for 1-D / 2-D datasets non dynamic
 
 import java.util.*;
 
