@@ -1,0 +1,413 @@
+{
+  "tournaments": [
+    {
+    "name": "English Premier League 2015/16",
+    "clubs": [
+      {
+        "key": "chelsea",
+        "name": "Chelsea",
+        "code": "CHE"
+      },
+      {
+        "key": "arsenal",
+        "name": "Arsenal",
+        "code": "ARS"
+      },
+      {
+        "key": "tottenham",
+        "name": "Tottenham Hotspur",
+        "code": "TOT"
+      },
+      {
+        "key": "westham",
+        "name": "West Ham United",
+        "code": "WHU"
+      },
+      {
+        "key": "crystalpalace",
+        "name": "Crystal Palace",
+        "code": "CRY"
+      },
+      {
+        "key": "manutd",
+        "name": "Manchester United",
+        "code": "MUN"
+      },
+      {
+        "key": "mancity",
+        "name": "Manchester City",
+        "code": "MCI"
+      },
+      {
+        "key": "everton",
+        "name": "Everton",
+        "code": "EVE"
+      },
+      {
+        "key": "liverpool",
+        "name": "Liverpool",
+        "code": "LIV"
+      },
+      {
+        "key": "westbrom",
+        "name": "West Bromwich Albion",
+        "code": "WBA"
+      },
+      {
+        "key": "newcastle",
+        "name": "Newcastle United",
+        "code": "NEW"
+      },
+      {
+        "key": "stoke",
+        "name": "Stoke City",
+        "code": "STK"
+      },
+      {
+        "key": "sunderland",
+        "name": "Sunderland",
+        "code": "SUN"
+      },
+      {
+        "key": "astonvilla",
+        "name": "Aston Villa",
+        "code": "AVL"
+      },
+      {
+        "key": "southampton",
+        "name": "Southampton",
+        "code": "SOU"
+      },
+      {
+        "key": "leicester",
+        "name": "Leicester City",
+        "code": "LEI"
+      },
+      {
+        "key": "bournemouth",
+        "name": "Bournemouth",
+        "code": "BOU"
+      },
+      {
+        "key": "norwich",
+        "name": "Norwich",
+        "code": "NOR"
+      },
+      {
+        "key": "watford",
+        "name": "Watford",
+        "code": "WAT"
+      },
+      {
+        "key": "swansea",
+        "name": "Swansea",
+        "code": "SWA"
+      }
+    ]
+  },
+  {
+    "name": "Deutsche Bundesliga 2015/16",
+    "clubs": [
+      {
+        "key": "bayern",
+        "name": "FC Bayern München",
+        "code": "FCB"
+      },
+      {
+        "key": "dortmund",
+        "name": "Borussia Dortmund",
+        "code": "BVB"
+      },
+      {
+        "key": "leverkusen",
+        "name": "Bayer 04 Leverkusen",
+        "code": "B04"
+      },
+      {
+        "key": "schalke",
+        "name": "Schalke 04",
+        "code": "S04"
+      },
+      {
+        "key": "frankfurt",
+        "name": "Eintracht Frankfurt",
+        "code": "FFM"
+      },
+      {
+        "key": "hsv",
+        "name": "Hamburger SV",
+        "code": "HSV"
+      },
+      {
+        "key": "mgladbach",
+        "name": "Borussia M'gladbach",
+        "code": "BMG"
+      },
+      {
+        "key": "hannover",
+        "name": "Hannover 96",
+        "code": "H96"
+      },
+      {
+        "key": "wolfsburg",
+        "name": "VfL Wolfsburg",
+        "code": "WOB"
+      },
+      {
+        "key": "mainz",
+        "name": "1. FSV Mainz 05",
+        "code": "M05"
+      },
+      {
+        "key": "bremen",
+        "name": "Werder Bremen",
+        "code": "BRE"
+      },
+      {
+        "key": "hoffenheim",
+        "name": "1899 Hoffenheim",
+        "code": "HOF"
+      },
+      {
+        "key": "stuttgart",
+        "name": "VfB Stuttgart",
+        "code": "VFB"
+      },
+      {
+        "key": "augsburg",
+        "name": "FC Augsburg",
+        "code": "FCA"
+      },
+      {
+        "key": "herthabsc",
+        "name": "Hertha BSC",
+        "code": "BSC"
+      },
+      {
+        "key": "koeln",
+        "name": "1. FC Köln",
+        "code": "KOE"
+      },
+      {
+        "key": "ingolstadt",
+        "name": "FC Ingolstadt 04",
+        "code": "FCI"
+      },
+      {
+        "key": "darmstadt",
+        "name": "SV Darmstadt 98",
+        "code": "D98"
+      }
+    ]
+  },
+  {
+    "name": "Primera División 2015/16",
+    "clubs": [
+      {
+        "key": "barcelona",
+        "name": "Barcelona",
+        "code": "BAR"
+      },
+      {
+        "key": "espanyol",
+        "name": "Espanyol",
+        "code": "ESP"
+      },
+      {
+        "key": "madrid",
+        "name": "R. Madrid",
+        "code": "RMD"
+      },
+      {
+        "key": "atletico",
+        "name": "Atlético",
+        "code": "ATL"
+      },
+      {
+        "key": "getafe",
+        "name": "Getafe",
+        "code": "GET"
+      },
+      {
+        "key": "rayo",
+        "name": "Rayo",
+        "code": "RAY"
+      },
+      {
+        "key": "sevilla",
+        "name": "Sevilla",
+        "code": "SEV"
+      },
+      {
+        "key": "valencia",
+        "name": "Valencia",
+        "code": "VAL"
+      },
+      {
+        "key": "levante",
+        "name": "Levante",
+        "code": "LEV"
+      },
+      {
+        "key": "malaga",
+        "name": "Málaga",
+        "code": "MAG"
+      },
+      {
+        "key": "athletic",
+        "name": "Athletic",
+        "code": "ATH"
+      },
+      {
+        "key": "granada",
+        "name": "Granada",
+        "code": "GRA"
+      },
+      {
+        "key": "celta",
+        "name": "Celta",
+        "code": "CEL"
+      },
+      {
+        "key": "realsociedad",
+        "name": "R. Sociedad",
+        "code": "RSO"
+      },
+      {
+        "key": "deportivo",
+        "name": "Deportivo",
+        "code": "DEP"
+      },
+      {
+        "key": "eibar",
+        "name": "Eibar",
+        "code": null
+      },
+      {
+        "key": "betis",
+        "name": "Betis",
+        "code": "BET"
+      },
+      {
+        "key": "sporting",
+        "name": "Sporting",
+        "code": null
+      },
+      {
+        "key": "laspalmas",
+        "name": "Las Palmas",
+        "code": null
+      },
+      {
+        "key": "villareal",
+        "name": "Villarreal CF",
+        "code": "VLL"
+      }
+    ]
+  },
+  {
+    "name": "Serie A 2015/16",
+    "clubs": [
+      {
+        "key": "milan",
+        "name": "Milan",
+        "code": "MIL"
+      },
+      {
+        "key": "inter",
+        "name": "Inter",
+        "code": "INT"
+      },
+      {
+        "key": "lazio",
+        "name": "Lazio",
+        "code": "LAZ"
+      },
+      {
+        "key": "roma",
+        "name": "Roma",
+        "code": "ROM"
+      },
+      {
+        "key": "genoa",
+        "name": "Genoa",
+        "code": "GEN"
+      },
+      {
+        "key": "sampdoria",
+        "name": "Sampdoria",
+        "code": "SAM"
+      },
+      {
+        "key": "juventus",
+        "name": "Juventus",
+        "code": "JUV"
+      },
+      {
+        "key": "torino",
+        "name": "Torino",
+        "code": "TOR"
+      },
+      {
+        "key": "napoli",
+        "name": "Napoli",
+        "code": "NAP"
+      },
+      {
+        "key": "atalanta",
+        "name": "Atalanta",
+        "code": "ATA"
+      },
+      {
+        "key": "chievoverona",
+        "name": "Chievo",
+        "code": "CHI"
+      },
+      {
+        "key": "fiorentina",
+        "name": "Fiorentina",
+        "code": "FIO"
+      },
+      {
+        "key": "udinese",
+        "name": "Udinese",
+        "code": "UDI"
+      },
+      {
+        "key": "sassuolo",
+        "name": "Sassuolo",
+        "code": "SAS"
+      },
+      {
+        "key": "palermo",
+        "name": "Palermo",
+        "code": "PAL"
+      },
+      {
+        "key": "empoli",
+        "name": "Empoli",
+        "code": "EMP"
+      },
+      {
+        "key": "bologna",
+        "name": "Bologna",
+        "code": "BOL"
+      },
+      {
+        "key": "carpi",
+        "name": "Carpi",
+        "code": null
+      },
+      {
+        "key": "frosinone",
+        "name": "Frosinone",
+        "code": null
+      },
+      {
+        "key": "hellasverona",
+        "name": "Verona",
+        "code": "HEL"
+      }
+    ]
+  }]
+}

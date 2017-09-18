@@ -3,7 +3,8 @@ from collections import Counter
 import itertools
 import json
 
-dataset_size = int(input("Enter size of dataset : "))
+print("\n -- Association Mining using Apriori Algorithm -- ")
+dataset_size = int(input("\nEnter size of dataset : "))
 # itemset_size = int(input("Enter no of items available : "))
 dataset = []
 itemset = {}
@@ -55,4 +56,4 @@ while len(itemset) > 1:
 	iter_no += 1
 	itemset = l
 
-# c = Counter(frozenset(x) for x in dataset )
+print("\n-- Most Frequent pattern : "+str(itemset))
