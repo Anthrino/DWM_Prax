@@ -1,0 +1,7 @@
+L_Id,League_Name,League_Country,Team_Count,League_GR,Year,Avg_Transfer_spending (in bn)
+L1,Premier League,England,20,1,2016,1.4
+L2,La Liga,Spain,20,2,2016,0.7021
+L3,Ligue 1,France,20,5,2016,0.9313
+L4,Bundesliga,Germany,18,3,2016,0.7209
+L5,Preimeira Liga,Portugal,18,9,2016,0.5
+L6,Serie A,Italy,20,4,2016,1.03
