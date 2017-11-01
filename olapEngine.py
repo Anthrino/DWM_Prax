@@ -8,16 +8,16 @@ db = mdb_client.uefa.playerTransfers
 # OLAP Queries executed on FACT
 
 # Slicing Query
-print("\nSlicing> Total Transfers per agent :- \n")
-data = db.aggregate([{"$group" : {"_id" : "$agent.id", "total_transfer" : {"$sum" : "$transfer_fee"}}}])
+print("\n> Slicing: Total Transfers per agent :- \n")
+data = db.aggregate([{"$group" : {"_id" : "$agent.id", "total_transfer_amt" : {"$sum" : "$transfer_fee"}}}])
 
 for x in data:
 	print(x)
 
 # Dicing Query
-print("\nDicing> Total Transfers per agent per club :- \n")
+print("\n> Dicing: Total Transfers per agent per club :- \n")
 
-data = db.aggregate([{"$group" : {"_id" : {"$concat": ["$agent.id","-", "$to_club.id"]}, "total_transfer" : {"$sum" : "$transfer_fee"}}}])
+data = db.aggregate([{"$group" : {"_id" : {"$concat": ["$agent.id","-", "$to_club.id"]}, "total_transfer_amt" : {"$sum" : "$transfer_fee"}}}])
 
 for x in data:
 	print(x)

@@ -12,20 +12,20 @@ db = mdb_client.uefa.playerTransfers
 db.remove({}) 
  
 # Loading player profiles data from excel file 
-player_transfer_sheet = xl.load_workbook('playerTransfers.xlsx').active 
+player_transfer_sheet = xl.load_workbook('data_sources/playerTransfers.xlsx').active 
  
 for x in player_transfer_sheet: 
 	db.insert_one({"_id": x[8].value, "player": {"ref": "playerprofiles", "id": x[0].value}, "from_club": {"ref": "clubs", "id": x[1].value},
 		"to_club": {"ref": "clubs", "id": x[2].value}, "transfer_fee": x[3].value, "from_league": {"ref": "leagues", "id": x[4].value}, 
 		 "to_league": {"ref": "leagues", "id": x[5].value}, "agent": {"ref": "agents", "id": x[6].value}, "market_infl": x[7].value}) 
  
-print("> Inserted Transfer data into UEFA Transfers Collection\n") 
+print("\n> Inserted Transfer data into UEFA Transfers Collection\n") 
  
 db = mdb_client.uefa.leagues 
 db.remove({}) 
  
 # Loading league profiles data from csv file 
-with open('LeagueStats.csv') as csv_source: 
+with open('data_sources/LeagueStats.csv') as csv_source: 
 	source_data = csv.reader(csv_source) 
 	for line in source_data: 
 		# print(line)	 
@@ -39,7 +39,7 @@ db = mdb_client.uefa.clubs
 db.remove({}) 
  
 # Loading club profiles data from excel file 
-club_profile_sheet = xl.load_workbook('ClubProfile.xlsx').active 
+club_profile_sheet = xl.load_workbook('data_sources/ClubProfile.xlsx').active 
  
 for x in club_profile_sheet: 
 	# print(x[0].value+str(x[1].value)+x[2].value+x[3].value) 
@@ -53,7 +53,7 @@ db = mdb_client.uefa.agents
 db.remove({}) 
  
 # Loading agents profiles data from csv file 
-with open('AgentProfile.csv') as csv_source: 
+with open('data_sources/AgentProfile.csv') as csv_source: 
 	source_data = csv.reader(csv_source) 
 	for line in source_data: 
 		# print(line)	 
@@ -67,7 +67,7 @@ db.remove({})
  
  
 # Loading player profiles data from excel file 
-player_profile_sheet = xl.load_workbook('PlayerProfile.xlsx').active 
+player_profile_sheet = xl.load_workbook('data_sources/PlayerProfile.xlsx').active 
  
 for x in player_profile_sheet: 
 	# print(x[0].value+str(x[1].value)+x[2].value+x[3].value) 
